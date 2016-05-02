@@ -1,0 +1,329 @@
+@import 'bootstrap.min.css';
+@import 'variables.css';
+* {
+    font-family: "Open Sans";
+}
+body {
+    background: $lighterColor;
+}
+h1,h2,h3,h4,h5,h6,
+.hero-headline{
+    font-weight: 300;
+}
+h1{
+    font-size: 40px;
+}
+h2{
+    font-size: 30px;
+}
+h3 {
+    font-size: 20px;
+}
+.navbar-logo{
+    height: auto;
+}
+.btn,
+.menu-toggle {
+    color: $lightestColor;
+}
+.btn {
+    padding: 15px 47px;
+    border-radius: 30px;
+    background: $primaryColor;
+    &:hover {
+        color: $darkColor;
+    }
+}
+.btn-highlight {
+    background: $highlight;
+}
+.btn-sq{
+    border: 2px solid $lightestColor;
+    border-radius: 0;
+    background: 0;
+}
+.site-header {
+    z-index: 10;
+}
+.menu-toggle {
+    background: none;
+    border: 0;
+}
+
+.navigation-guide {
+    margin: 28px 0;
+    float: right;
+}
+.page-section{
+    padding: 105px 0;
+}
+.banner {
+    position: relative;
+    height: 100%;
+    height: 100vh;
+    width: 100%;
+    background: url(../img/banner.png) left top no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        transform: translate(-20%,-50%);
+        color: #fff;
+    }
+    .hero-headline {
+        font-size: 30px;
+        @media screen and (min-width: 992px){
+            font-size: 70px;
+        }
+    }
+}
+
+.interface {
+    background: $primaryColor;
+    color: $lightestColor;
+    @media screen and (min-width: 992px){
+        .col-sm-6:first-of-type{
+            margin: 0 0 100px;
+        }
+    }
+
+}
+
+.quick-links{
+    position: relative;
+    z-index: 9;
+    background: $lightColor;
+    .quickie-link {
+        color: $darkColor;
+        h2 {
+            color: $darketColor;
+        }
+        h3 {
+            color: $grayColor;
+            margin: 25px 0;
+        }
+        .btn {
+            margin: 25px 0 0;
+        }
+    }
+}
+.designed-for-humans,
+.features {
+    h1,h2,h3 {
+        color: $lightestColor;
+    }
+    p {
+        color: $lighterColor;
+    }
+}
+
+.designed-for-humans{
+    background: url(../img/browser.png) center bottom no-repeat, linear-gradient(#232831,#232831);
+
+    .btn-sq {
+        margin: 250px 0 -30px;
+        font-size: 25px;
+    }
+}
+
+.fig-interface,
+.fig-iphone{
+    position: absolute
+}
+.fig-iphone{
+    right: 0;
+    transform: translate(0,-30%);
+}
+
+.features {
+    background: $darkerColor;
+    h3 span{
+        color: #3a4d60;
+    }
+}
+.feature {
+    padding: 40px 15px 0;
+}
+.ft-design {
+    background: url(../img/pencil.png) 15px top no-repeat;
+}
+.ft-refine {
+    background: url(../img/d.png) 15px top no-repeat;
+}
+.ft-dive {
+    background: url(../img/brush.png) 15px top no-repeat;
+}
+.ft-research {
+    background: url(../img/magnifier.png) 15px top no-repeat;
+}
+.ft-connect {
+    h2 {
+        background: url(../img/cloud.png) left center no-repeat;
+        padding: 0 0 0 50px;
+    }
+    @media screen and (min-width: 992px) {
+        padding: 8% 20px 0 8%;   
+    }
+    @media screen and (min-width: 1600px) {
+        padding: 8% 20px 0 16%;
+    }
+    + .col-md-6 {
+        padding: 0;
+    }
+}
+.ultimate-feature {
+    background: #f4f8fb;
+    padding: 0;
+    .container-fluid {
+        &:first-child {
+            background: #e9eef1;
+        }
+        padding: 0;
+    }
+    .row {
+        margin: 0;
+    }
+}
+.news-preview {
+    padding: 0;
+    .wrapper {
+        margin: 0 auto;
+        @media screen and (min-width: 992px) {
+            margin: 0 0 0 15%;
+        }
+    }
+}
+.news {
+    background: $primaryColor;
+    @media screen and (min-width: 992px){
+        min-height: 453px;
+    }
+}
+.post-author {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    cite {
+        float: left;
+        font-size: 15px;
+        color: $lightestColor;
+        font-style: normal;
+        margin: 18px;
+    }
+}
+.date-posted {
+    font-size: 12px;
+    font-style: italic;
+    color: $lightestColor;
+}
+.author-avatar {
+    float: left;
+    height: 59px;
+    width: 59px;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    img {
+        transform: translate(-33%, 0);
+        position: absolute;
+        top: 0;
+    }
+}
+.post-snippet {
+    color: $lightestColor;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 300;
+    @media screen and (min-width: 992px) {
+        font-size: 32px;
+    }
+}
+.post {
+    position: relative;
+    padding: 4% 8% 0 4%;
+    @media screen and (max-width: 992px) {
+        padding: 4% 15px;
+    }   
+}
+.tag {
+    position: absolute;
+    top: -22px;
+    left: 0;
+    background: #232323;
+    border-radius: 0;
+    padding: 5px 10px;
+}
+.latest-news {
+    .post {
+        background: $lightestColor;
+        padding: 4%;
+        height: 303px;
+    }
+    .post-title {
+        margin: 0 0 27px;
+        display: block;
+    }
+    .post-preview{
+        padding: 0;
+    }
+    .post-summary {
+        color: #83969f;
+    }
+}
+.big-area {
+    height: 757px;
+    background: url(../img/post-thumbnail-large.png) center bottom no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    .post {
+        background: $primaryColor;
+        padding: 8%;
+    }
+}
+.comments {
+    position: absolute;
+    bottom: 0;
+    left: 8%;
+    display: flex;
+    align-items: center;
+    .comment-count {
+        font-size: 32px;
+        display: inline-block;
+        border-right: 1px solid #ecece6;
+        padding: 16px;
+        margin: 0 16px 0 0;
+    }
+}
+.newsletter {
+    .theme-input,
+    .theme-input-addon{
+        border: 0;
+    }
+    .theme-input-addon {
+        background: $primaryColor;
+        color: $lightestColor;
+    }
+    
+}
+.site-footer {
+    background: $darkestColor;
+    padding: 105px 0;
+    &,
+    a {
+        color: $lightestColor;
+    }
+    .link-set {
+        a {
+            display: block;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+}
