@@ -3,21 +3,19 @@ module.exports = function(grunt) {
     grunt.initConfig({
         watch: {
             A: {
-                files: ['css/pre/main.css'],
+                files: ['public/src/css/*.css'],
                 tasks: ['default']
-            },
-            B: {
-                files: ['js/main.js'],
-                tasks: ['minimize']
             }
         },
         postcss: {
             options: {
                 map: {
                     inline: false, // save all sourcemaps as separate files...
-                    annotation: 'css/maps/' // ...to the specified directory
+                    annotation: 'public/dist/maps//' // ...to the specified directory
                 },
                 processors: [
+                    require("postcss-import")({}),
+                    require('postcss-nesting'),
                     require('precss')({ /* options */ }),
                     require('postcss-color-function'),
                     require("postcss-calc"),
@@ -26,17 +24,17 @@ module.exports = function(grunt) {
                 ]
             },
             dist: {
-                src: 'css/pre/main.css',
-                dest: 'css/main.css'
+                src: 'public/src/css/main.css',
+                dest: 'public/dist/main.css'
             }
         },
         cssmin: {
             target: {
                 files: [{
                     expand: true,
-                    cwd: 'css',
+                    cwd: 'public/dist',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'css',
+                    dest: 'public/dist',
                     ext: '.min.css'
                 }]
             }
@@ -44,17 +42,24 @@ module.exports = function(grunt) {
         uglify: {
             flat: {
                 files: {
-                    'js/main.min.js': ['js/main.js']
+                    'public/dist/build.min.js': ['public/dist/build.js']
                 }
             }
         },
+        concat: {
+            dist: {
+                src: ['public/src/js/jquery-1.12.3.min.js','public/src/js/bootstrap.min.js','public/src/js/main.js'], //FIFO - first in first out
+                dest: 'public/dist/build.js',
+            },
+        }
     });
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks("css-mqpacker");
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.registerTask('default', ['postcss:dist','cssmin']);
-    grunt.registerTask('minimize', ['uglify:flat']);
+    grunt.registerTask('minimize', ['concat:dist','uglify:flat']);
 
 };
