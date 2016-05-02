@@ -5,6 +5,10 @@ module.exports = function(grunt) {
             A: {
                 files: ['public/src/css/*.css'],
                 tasks: ['default']
+            },
+            B: {
+                files: ['public/src/js/main.js'],
+                tasks: ['minimize']
             }
         },
         postcss: {
@@ -48,7 +52,7 @@ module.exports = function(grunt) {
         },
         concat: {
             dist: {
-                src: ['public/src/js/jquery-1.12.3.min.js','public/src/js/bootstrap.min.js','public/src/js/main.js'], //FIFO - first in first out
+                src: ['public/src/js/jquery-1.12.3.min.js','public/src/js/jquery.waypoints.min.js','public/src/js/bootstrap.min.js','public/src/js/inview.min.js','public/src/js/main.js'], //FIFO - first in first out
                 dest: 'public/dist/build.js',
             },
         }
