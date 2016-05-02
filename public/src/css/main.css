@@ -1,7 +1,62 @@
 @import 'bootstrap.min.css';
+@import 'animate.min.css';
 @import 'variables.css';
 * {
     font-family: "Open Sans";
+}
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+    background: #000;
+    background: rgba(0,0,0,0.35);
+    &.off {
+        display: none;
+    }
+}
+.main-navigation {
+    background: $primaryColor;
+    width: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    height: 100vh;
+    z-index: 111;
+    transition: right 0.4s ease-out;
+    @media screen and (min-width: 480px){
+        width: 320px;
+    }
+    &.off {
+        right: -320px;
+    }
+}
+.main-menu {
+    padding: 0 15px;
+    list-style: none;
+    margin: 0;
+    text-align: right;
+    li{
+        padding: 15px 30px;
+        &:not(last-child){
+            border-bottom: 1px solid color($lightestColor a(50%));
+        }
+        & + li {
+            border-top: 1px solid color($grayColor a(50%));
+        }
+    }
+    a {
+        color: $lightestColor;
+        display: inline-block;
+        font-size: 24px;
+    }
+}
+.moveIn {
+    /*    display: none;*/
+    visibility: hidden;
 }
 body {
     background: $lighterColor;
@@ -48,6 +103,8 @@ h3 {
 .menu-toggle {
     background: none;
     border: 0;
+    position: relative;
+    z-index: 103px;
 }
 
 .navigation-guide {
@@ -121,11 +178,14 @@ h3 {
 }
 
 .designed-for-humans{
-    background: url(../img/browser.png) center bottom no-repeat, linear-gradient(#232831,#232831);
-
+    background: url(../img/browser.png) center 100% no-repeat, linear-gradient(#232831,#232831);
+    transition: background 0.4s linear;
     .btn-sq {
         margin: 250px 0 -30px;
         font-size: 25px;
+    }
+    &.backgroundIn {
+        background: url(../img/browser.png) center 180% no-repeat, linear-gradient(#232831,#232831);
     }
 }
 
@@ -262,7 +322,7 @@ h3 {
     .post {
         background: $lightestColor;
         padding: 4%;
-        height: 303px;
+        height: 296px;
     }
     .post-title {
         margin: 0 0 27px;
@@ -308,7 +368,7 @@ h3 {
         background: $primaryColor;
         color: $lightestColor;
     }
-    
+
 }
 .site-footer {
     background: $darkestColor;
